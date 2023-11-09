@@ -50,6 +50,7 @@ class TMDBClient {
   Future<TMDBMoviesResponse> nowPlayingMovies({required int page}) async {
     final response =
         await client.get(TMDBApi.moviesNowPlaying(page).toString());
+
     return TMDBMoviesResponse.fromJson(response.data);
   }
 }

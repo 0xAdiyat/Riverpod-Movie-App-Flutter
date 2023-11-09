@@ -3,6 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_movie_app/top_level_providers.dart';
 
+import '../favourites/favourites_page.dart';
+import '../now_playing/now_playing_page.dart';
+import '../profile_selection/profile_selection_page.dart';
+
 class AppStartupPage extends ConsumerWidget {
   const AppStartupPage({super.key});
 
@@ -11,15 +15,15 @@ class AppStartupPage extends ConsumerWidget {
     final appStartup = ref.watch(appStartupModelProvider);
     return appStartup.when(
         initializing: () => const Center(child: CircularProgressIndicator()),
-        needsProfile: () => ProfileSelectionPage(),
+        needsProfile: () => const ProfileSelectionPage(),
         profileLoaded: (profilesData) =>
             HomeNavigationBuilder(builder: (context, tabItem) {
               if (tabItem == TabItem.nowPlaying) {
-                return NowPlayingPage();
+                return const NowPlayingPage();
               } else if (tabItem == TabItem.favourites) {
-                return FavouritesPage();
+                return const FavouritesPage();
               } else {
-                return ProfileSelectionPage();
+                return const ProfileSelectionPage();
               }
             }));
   }

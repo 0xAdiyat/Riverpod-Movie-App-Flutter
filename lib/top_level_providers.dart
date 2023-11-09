@@ -14,7 +14,7 @@ final appStartupModelProvider =
   return AppStartupModel(dataStore: dataStore);
 });
 
-final profileDataProvider = Provider<ProfilesData>((ref) {
+final profilesDataProvider = Provider<ProfilesData>((ref) {
   final appStartupModelState = ref.watch(appStartupModelProvider);
   return appStartupModelState.when(
       initializing: () => ProfilesData(),

@@ -12,7 +12,7 @@ class CreateProfileModel extends StateNotifier<CreateProfileState> {
 
   Future<bool> createProfile(String name) async {
     if (name.isEmpty) {
-      state = const CreateProfileState.error("Name can\'t be empty");
+      state = const CreateProfileState.error("Name can't be empty");
       return false;
     }
     final nameExists = await dataStore.profileExistWithName(name);

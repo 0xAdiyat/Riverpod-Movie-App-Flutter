@@ -29,7 +29,7 @@ class _CreateProfilePageState extends State<CreateProfilePage> {
                   : () => widget.onSubmit(controller.value.text),
               child: Text(
                 'Save',
-                style: TextStyle(color: Colors.white),
+                style: TextStyle(color: Colors.black),
               ))
         ],
       ),
